@@ -1,0 +1,5 @@
+.mui-input-row .mui-input-clear~.mui-icon-clear{position: relative;}
+.mui-h4,.mui-h5{padding: 15px 10px 5px;}
+.group-done .mui-checkbox label{color: #999}
+.tast-text{width: auto !important;}
+.flex-column:before{position: absolute;left: 0;top: 0;bottom: 0;width: 1px;height: 100%;background: #c8c7cc;transform: scaleX(.5);-webkit-transform: scaleX(.5);}

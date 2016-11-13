@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.0.2/weui.min.css">
+  <link rel="stylesheet" href="mui/css/flex.css">
+  <link rel="stylesheet" href="mui/css/mui.min.css">
+  <link rel="stylesheet" href="todo.css">
+  <script src="mui/js/mui.min.js"></script>
+  <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+  <script src="//cdn.bootcss.com/angular.js/1.5.8/angular-route.min.js"></script>
+  <script src="todo.js"></script>
+  <script></script>
+</head>
+<body ontouchstart>
+  <div class="mui-content" ng-controller="ToDoCtrl">
+    <div class="mui-content-padded">
+
+      <div class="mui-h4">
+        任务清单
+        <span class="label label-default" ng-class="warningLevel()"
+              ng-hide="incompleteCount() == 0">
+            ({{incompleteCount()}})
+        </span>
+      </div>
+
+      <div class="mui-input-group">
+        <div class="mui-input-row mui-checkbox" ng-repeat="item in todo.items | checkedItems:false | orderBy:'-time'">
+          <label>{{item.action}}({{item.time}})</label>
+          <input ng-model="item.done" type="checkbox">
+        </div>
+        <div class="mui-input-row mui-text-center mui-checkbox" ng-hide="incompleteCount() != 0">
+          <label>没有任务了， 恭喜！</label>
+        </div>
+      </div>
+
+      <div class="mui-h5" ng-hide="completeCount() == 0">已完成</div>
+      <div class="mui-input-group group-done">
+        <div class="mui-input-row mui-checkbox" ng-repeat="item in todo.items | checkedItems:true | orderBy:'-time'">
+          <label>{{item.action}}({{item.time}})</label>
+          <input ng-model="item.done" type="checkbox">
+        </div>
+      </div>
+      <div class="mui-input-group" style="margin-top: 10px">
+        <div class="mui-input-row flex-column">
+          <input type="text" class="mui-input-clear flex-item tast-text" placeholder="准备做什么？" ng-model="actionText">
+          <button class="mui-btn mui-btn-primary" ng-click="addNewItem(actionText)">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
