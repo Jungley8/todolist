@@ -1,0 +1,46 @@
+<div class="mui-content" ng-controller="ToDoList">
+  <div class="mui-content-padded">
+
+    <div class="mui-h4">
+      任务清单
+      <span class="mui-badge mui-hidden" ng-class="warningLevel()"
+            ng-hide="incompleteCount() == 0">
+          {{incompleteCount()}}
+      </span>
+    </div>
+
+    <div class="mui-input-group">
+
+      <div class="mui-input-row mui-checkbox" ng-repeat="item in todo | checkedItems:false | orderBy:'-time'">
+        <label ng-click="direct(item.id)">{{item.action}}({{item.time}})</label>
+        <input ng-model="item.done" type="checkbox">
+      </div>
+
+      <div class="mui-input-row mui-text-center mui-checkbox" ng-hide="incompleteCount() != 0">
+        <label>没有任务了， 恭喜！</label>
+      </div>
+
+    </div>
+
+    <div class="mui-h5" ng-hide="completeCount() == 0">已完成</div>
+
+    <div class="mui-input-group group-done">
+
+      <div class="mui-input-row mui-checkbox" ng-repeat="item in todo | checkedItems:true | orderBy:'-time'">
+        <label>{{item.action}}({{item.time}})</label>
+        <input ng-model="item.done" type="checkbox">
+      </div>
+
+    </div>
+
+    <div class="mui-input-group" style="margin-top: 10px">
+
+      <div class="mui-input-row flex-column">
+        <input type="text" class="mui-input-clear flex-item tast-text" placeholder="准备做什么？" ng-model="actionText">
+        <button class="mui-btn mui-btn-primary" ng-click="addNewItem(actionText)">添加</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

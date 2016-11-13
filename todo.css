@@ -21,3 +21,13 @@
   transform: scaleX(.5);
   -webkit-transform: scaleX(.5);
 }
+.flex-column:after, .flex-row:after{
+  width: auto;
+}
+.mui-btn-block{
+  padding: 5px 0;
+}
+.mui-input-row .label,.mui-input-row .input{
+  width: auto;
+  float: none;
+}

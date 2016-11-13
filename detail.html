@@ -1,0 +1,24 @@
+<div class="mui-content">
+  <div class="mui-content-padded">
+
+    <div class="mui-input-group">
+      <div class="mui-input-row flex-column">
+        <label class="label">任务</label>
+        <input type="text" class="mui-input-clear input flex-item" ng-model="detail.action" >
+      </div>
+      <div class="mui-input-row flex-column">
+        <label class="label">时间</label>
+        <input type="text" class="mui-input-clear input flex-item" ng-model="detail.time" placeholder="请设置时间">
+      </div>
+    </div>
+
+    <div class="mui-h4">备注说明</div>
+    <textarea ng-model="detail.notes" rows="10"></textarea>
+
+    <div class="mui-button-row">
+        <a ng-click="delete(detail.id)" class="mui-btn mui-btn-block mui-btn-danger" >删除</a>
+        <a href="#/" class="mui-btn mui-btn-block mui-btn-purple" >返回</a>
+    </div>
+  </div>
+</div>
+
