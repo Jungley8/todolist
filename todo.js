@@ -15,7 +15,7 @@ Date.prototype.Format = function(fmt) {
 }
 var model = {},
     maxid = 0;
-var todoApp = angular.module("todoApp", ['ngRoute','ngStorage']);
+var todoApp = angular.module("todoApp", ['ngRoute']);
 todoApp.run(function($http) {
     $http.get("todo.json").success(function(data) {
         mui.each(data, function(i, e) {
